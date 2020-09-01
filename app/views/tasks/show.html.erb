@@ -1,4 +1,17 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><%= @task.completed%></p>
-<p><%= link_to "Back to all tasks", tasks_path %></p>
+<h2><%= @task.title %></h2><button type="button" id="button" class="btn btn-info"><%= link_to "Edit task", edit_task_path(@task) %></button>
+
+<div class="task-details">
+  <div class="card">
+    <div class="card-body">
+      <p><%= @task.details %></p>
+    </div>
+  </div>
+
+<div class="form-check task">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" <%= @task.completed ? "checked" : "" %>>
+    <label class="form-check-label" for="defaultCheck1">
+    <p><%= @task.completed ? "This task has been completed" : "This task has not been completed yet"%></p>
+</div>
+
+
+<p class="border-top new"><%= link_to "Back to all tasks", tasks_path %></p>
